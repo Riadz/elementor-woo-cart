@@ -84,7 +84,7 @@ final class Woocommerce_Cart
 
 		$message = sprintf(
 			esc_html('"%1$s" requires "%2$s" to be installed and activated.'),
-			'<strong>' . esc_html('Elementor Test Extension') . '</strong>',
+			'<strong>' . esc_html('Elementor - Woocommerce Cart Widget') . '</strong>',
 			'<strong>' . esc_html('Elementor') . '</strong>'
 		);
 
@@ -96,7 +96,7 @@ final class Woocommerce_Cart
 
 		$message = sprintf(
 			esc_html('"%1$s" requires "%2$s" version %3$s or greater.'),
-			'<strong>' . esc_html('Elementor Test Extension') . '</strong>',
+			'<strong>' . esc_html('Elementor - Woocommerce Cart Widget') . '</strong>',
 			'<strong>' . esc_html('Elementor') . '</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
@@ -109,7 +109,7 @@ final class Woocommerce_Cart
 
 		$message = sprintf(
 			esc_html('"%1$s" requires "%2$s" version %3$s or greater.'),
-			'<strong>' . esc_html('Elementor Test Extension') . '</strong>',
+			'<strong>' . esc_html('Elementor - Woocommerce Cart Widget') . '</strong>',
 			'<strong>' . esc_html('PHP') . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
