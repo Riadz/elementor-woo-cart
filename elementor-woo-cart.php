@@ -14,7 +14,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-final class Woocommerce_Cart
+final class Elementor_Woocommerce_Cart
 {
 	const VERSION = '1.0.0';
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -118,4 +118,4 @@ final class Woocommerce_Cart
 	}
 }
 
-Woocommerce_Cart::instance();
+Elementor_Woocommerce_Cart::instance();
