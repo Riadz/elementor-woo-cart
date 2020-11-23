@@ -20,6 +20,9 @@ final class Elementor_Woocommerce_Cart
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 	const MINIMUM_PHP_VERSION = '7.0';
 
+	private $plugin_path;
+	private $plugin_url;
+
 	private static $_instance = null;
 	public static function instance()
 	{
@@ -31,6 +34,9 @@ final class Elementor_Woocommerce_Cart
 
 	public function __construct()
 	{
+		$this->plugin_path = plugin_dir_path(__FILE__);
+		$this->plugin_url = plugin_dir_url(__FILE__);
+
 		add_action('plugins_loaded', [$this, 'on_plugins_loaded']);
 	}
 	public function on_plugins_loaded()
@@ -44,13 +50,21 @@ final class Elementor_Woocommerce_Cart
 	{
 		add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
 		// add_action('elementor/controls/controls_registered', [$this, 'init_controls']);
+
+		//adding cart to woo fragments so it updates with ajax
+		require_once("$this->plugin_path/includes/woo-fragments.php");
 	}
 
 	// Register widget
 	public function init_widgets()
 	{
-		require_once(__DIR__ . '/includes/widgets/woo-cart-widget.php');
+		require_once("$this->plugin_path/includes/widgets/woo-cart-widget.php");
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Woocommerce_Cart_Widget());
+
+		// widget styles & scripts
+		add_action('elementor/frontend/after_enqueue_styles', function () {
+			wp_enqueue_style('elementor-woo-cart', "$this->plugin_url/assets/css/style.min.css");
+		});
 	}
 
 	// Plugin compatible
