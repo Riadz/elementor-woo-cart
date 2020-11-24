@@ -53,6 +53,11 @@ final class Elementor_Woocommerce_Cart
 
 		//adding cart to woo fragments so it updates with ajax
 		require_once("$this->plugin_path/includes/woo-fragments.php");
+
+		// widget styles & scripts
+		add_action('elementor/frontend/after_enqueue_styles', function () {
+			wp_enqueue_style('elementor-woo-cart', "$this->plugin_url/assets/css/style.min.css");
+		});
 	}
 
 	// Register widget
@@ -60,11 +65,6 @@ final class Elementor_Woocommerce_Cart
 	{
 		require_once("$this->plugin_path/includes/widgets/woo-cart-widget.php");
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Woocommerce_Cart_Widget());
-
-		// widget styles & scripts
-		add_action('elementor/frontend/after_enqueue_styles', function () {
-			wp_enqueue_style('elementor-woo-cart', "$this->plugin_url/assets/css/style.min.css");
-		});
 	}
 
 	// Plugin compatible
