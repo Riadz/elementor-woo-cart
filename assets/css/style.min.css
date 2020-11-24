@@ -31,11 +31,12 @@
 }
 
 .woo-cart-dropdown {
-  display: none;
-  flex-direction: column;
   position: absolute;
+  z-index: 100;
   left: 0;
   top: 100%;
+  display: none;
+  flex-direction: column;
 }
 
 .woo-cart-dropdown .cart_list {
