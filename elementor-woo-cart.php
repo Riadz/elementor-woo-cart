@@ -49,7 +49,6 @@ final class Elementor_Woocommerce_Cart
 	public function init()
 	{
 		add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
-		// add_action('elementor/controls/controls_registered', [$this, 'init_controls']);
 
 		//adding cart to woo fragments so it updates with ajax
 		require_once("$this->plugin_path/includes/woo-fragments.php");

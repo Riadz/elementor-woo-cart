@@ -34,7 +34,7 @@
   &-dropdown {
     position: absolute;
     z-index: 100;
-    left: 0;
+    right: 0;
     top: 100%;
 
     display: none;
@@ -89,8 +89,10 @@
   width: 435px;
   padding: 12px;
 
-  border: 1px solid red;
-  box-shadow: 0 0 10px rgba(#000, 0.2);
+  background-color: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 0 10px rgba(#000, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 
   .woo-cart-header {
     padding: 8px 0 25px;
@@ -130,7 +132,8 @@
     align-items: center;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid red;
+
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(#000, 0.2);
   }
 
