@@ -5,12 +5,12 @@ add_filter('woocommerce_add_to_cart_fragments', function ($fragments) {
 	ob_start();
 
 	?>
-	<div class="woo-cart-dropdown">
+	<div class="woo-cart-content">
 		<?php woocommerce_mini_cart() ?>
 	</div>
 <?php
 
-	$fragments['.woo-cart .woo-cart-dropdown'] = ob_get_clean();
+	$fragments['.woo-cart .woo-cart-content'] = ob_get_clean();
 	return $fragments;
 });
 
