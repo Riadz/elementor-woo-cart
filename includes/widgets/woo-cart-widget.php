@@ -21,7 +21,7 @@ class Woocommerce_Cart_Widget extends \Elementor\Widget_Base
 	function render()
 	{ ?>
 
-		<div class="woo-cart">
+		<div class="woo-cart basic">
 			<!-- Icon -->
 			<a class="woo-cart-icon" href="<?= wc_get_cart_url() ?>">
 				<i class="fas fa-shopping-cart"></i>
@@ -30,7 +30,15 @@ class Woocommerce_Cart_Widget extends \Elementor\Widget_Base
 
 			<!-- Dropdown -->
 			<div class="woo-cart-dropdown">
-				<?php woocommerce_mini_cart() ?>
+				<div class="woo-cart-header">
+					<span>Cart</span>
+					<a href="<?= wc_get_cart_url() ?>">
+						<i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+				<div class="woo-cart-content">
+					<?php woocommerce_mini_cart() ?>
+				</div>
 			</div>
 		</div>
 
