@@ -1,12 +1,16 @@
 .woo-cart {
   position: relative;
+	width: max-content;
 
   // icon
   &-icon {
     position: relative;
 
-    color: black;
     font-size: 30px;
+
+    i {
+      color: black;
+    }
 
     & > .count {
       display: block;

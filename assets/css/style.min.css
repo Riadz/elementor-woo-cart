@@ -2,12 +2,18 @@
 
 .woo-cart {
   position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .woo-cart-icon {
   position: relative;
-  color: black;
   font-size: 30px;
+}
+
+.woo-cart-icon i {
+  color: black;
 }
 
 .woo-cart-icon > .count {
