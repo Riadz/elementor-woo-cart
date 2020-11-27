@@ -24,7 +24,7 @@ final class Elementor_Woocommerce_Cart
 	private $plugin_url;
 
 	private static $_instance = null;
-	public static function instance()
+	static function instance()
 	{
 		if (is_null(self::$_instance))
 			self::$_instance = new self();
@@ -32,21 +32,21 @@ final class Elementor_Woocommerce_Cart
 		return self::$_instance;
 	}
 
-	public function __construct()
+	private function __construct()
 	{
 		$this->plugin_path = plugin_dir_path(__FILE__);
 		$this->plugin_url = plugin_dir_url(__FILE__);
 
 		add_action('plugins_loaded', [$this, 'on_plugins_loaded']);
 	}
-	public function on_plugins_loaded()
+	function on_plugins_loaded()
 	{
 		if ($this->is_compatible())
 			add_action('elementor/init', [$this, 'init']);
 	}
 
 	// Add Plugin actions
-	public function init()
+	function init()
 	{
 		add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
 
@@ -60,14 +60,14 @@ final class Elementor_Woocommerce_Cart
 	}
 
 	// Register widget
-	public function init_widgets()
+	function init_widgets()
 	{
 		require_once("$this->plugin_path/includes/widgets/woo-cart-widget.php");
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Woocommerce_Cart_Widget());
 	}
 
 	// Plugin compatible
-	public function is_compatible()
+	function is_compatible()
 	{
 		// Check if Elementor installed and activated
 		if (!did_action('elementor/loaded')) {
@@ -91,7 +91,7 @@ final class Elementor_Woocommerce_Cart
 	}
 
 	// Admin notices
-	public function admin_notice_missing_main_plugin()
+	function admin_notice_missing_main_plugin()
 	{
 		if (isset($_GET['activate'])) unset($_GET['activate']);
 
@@ -103,7 +103,7 @@ final class Elementor_Woocommerce_Cart
 
 		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
-	public function admin_notice_minimum_elementor_version()
+	function admin_notice_minimum_elementor_version()
 	{
 		if (isset($_GET['activate'])) unset($_GET['activate']);
 
@@ -116,7 +116,7 @@ final class Elementor_Woocommerce_Cart
 
 		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
-	public function admin_notice_minimum_php_version()
+	function admin_notice_minimum_php_version()
 	{
 		if (isset($_GET['activate'])) unset($_GET['activate']);
 
