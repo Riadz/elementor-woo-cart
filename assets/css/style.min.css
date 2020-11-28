@@ -16,6 +16,11 @@
   color: black;
 }
 
+.woo-cart-icon img {
+  width: 1em;
+  height: auto;
+}
+
 .woo-cart-icon > .count {
   display: block;
   position: absolute;
