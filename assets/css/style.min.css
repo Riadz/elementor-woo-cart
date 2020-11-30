@@ -12,8 +12,9 @@
   font-size: 30px;
 }
 
-.woo-cart-icon i {
+.woo-cart-icon a {
   color: black;
+  transition: color 0.3s ease;
 }
 
 .woo-cart-icon img {
